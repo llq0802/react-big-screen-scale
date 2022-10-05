@@ -544,11 +544,10 @@ var _react = require("react");
 var _reactDom = require("react-dom");
 var _ = require("../.");
 var _Default = parcelHelpers.interopDefault(_);
-var _reactBigScreenScaleMinCss = require("../dist/react-big-screen-scale.min.css");
+// import '../dist/react-big-screen-scale.min.css';
 var _indexLess = require("./index.less");
 const App = ()=>{
     return /*#__PURE__*/ _react.createElement((0, _Default.default), {
-        isfullScreen: true,
         __source: {
             fileName: "index.tsx",
             lineNumber: 10,
@@ -583,7 +582,7 @@ _reactDom.render(/*#__PURE__*/ _react.createElement(App, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react-app-polyfill/ie11":"1ALbI","react":"65qic","react-dom":"dURXg","../.":"j44oN","../dist/react-big-screen-scale.min.css":"840Lz","./index.less":"dOW9w","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1ALbI":[function(require,module,exports) {
+},{"react-app-polyfill/ie11":"1ALbI","react":"65qic","react-dom":"dURXg","../.":"j44oN","./index.less":"dOW9w","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1ALbI":[function(require,module,exports) {
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  *
@@ -25441,8 +25440,7 @@ function _extends() {
         var domHeight = screenWrapper.current.clientHeight;
         var bodyWidth = document.body.clientWidth;
         var bodyHeight = document.body.clientHeight;
-        console.log("setDomScale", scale);
-        screenWrapper.current.style.transform = "scale(" + scale + "," + scale + ")";
+        screenWrapper.current.style.transform = "scale(" + scale + "," + scale + ")"; // 计算外边距
         var mx = Math.max((bodyWidth - domWidth * scale) / 2, 0);
         var my = Math.max((bodyHeight - domHeight * scale) / 2, 0);
         if (typeof autoScale === "object") {
@@ -25458,8 +25456,7 @@ function _extends() {
         var realWidth = state.current.width || state.current.originalWidth;
         var realHeight = state.current.height || state.current.originalHeight; // 计算缩放比例
         var widthScale = bodyWidth / +realWidth;
-        var heightScale = bodyHeight / +realHeight;
-        console.log("isfullScreen", isfullScreen); // 若要铺满全屏，则按照各自比例缩放
+        var heightScale = bodyHeight / +realHeight; // 若要铺满全屏，则按照各自比例缩放
         if (isfullScreen) screenWrapper.current.style.transform = "scale(" + widthScale + "," + heightScale + ")";
         else {
             // 按照宽高最小比例进行缩放
@@ -26079,6 +26076,6 @@ module.exports = require("./cjs/react-refresh-runtime.development.js");
     exports.setSignature = setSignature;
 })();
 
-},{}],"840Lz":[function() {},{}],"dOW9w":[function() {},{}]},["hi2Fo","kjLP2"], "kjLP2", "parcelRequired98c")
+},{}],"dOW9w":[function() {},{}]},["hi2Fo","kjLP2"], "kjLP2", "parcelRequired98c")
 
 //# sourceMappingURL=index.6fa4ea68.js.map

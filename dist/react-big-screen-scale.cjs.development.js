@@ -33,7 +33,7 @@ function _extends() {
 
 function debounce(fn, delay) {
   if (delay === void 0) {
-    delay = 300;
+    delay = 400;
   }
 
   var timer;
@@ -141,8 +141,8 @@ var BigScreenScale = function BigScreenScale(props) {
     var domHeight = screenWrapper.current.clientHeight;
     var bodyWidth = document.body.clientWidth;
     var bodyHeight = document.body.clientHeight;
-    console.log('setDomScale', scale);
-    screenWrapper.current.style.transform = "scale(" + scale + "," + scale + ")";
+    screenWrapper.current.style.transform = "scale(" + scale + "," + scale + ")"; // 计算外边距
+
     var mx = Math.max((bodyWidth - domWidth * scale) / 2, 0);
     var my = Math.max((bodyHeight - domHeight * scale) / 2, 0);
 
@@ -163,8 +163,7 @@ var BigScreenScale = function BigScreenScale(props) {
     var realHeight = state.current.height || state.current.originalHeight; // 计算缩放比例
 
     var widthScale = bodyWidth / +realWidth;
-    var heightScale = bodyHeight / +realHeight;
-    console.log('isfullScreen', isfullScreen); // 若要铺满全屏，则按照各自比例缩放
+    var heightScale = bodyHeight / +realHeight; // 若要铺满全屏，则按照各自比例缩放
 
     if (isfullScreen) {
       screenWrapper.current.style.transform = "scale(" + widthScale + "," + heightScale + ")";

@@ -15,7 +15,7 @@ interface IState {
  * @param {number} delay
  * @returns {() => void}
  */
-function debounce<T = Function>(fn: T, delay: number = 300): () => void {
+function debounce<T = Function>(fn: T, delay: number = 400): () => void {
   let timer: NodeJS.Timeout;
   return function(...args: any[]): void {
     if (timer) clearTimeout(timer);
