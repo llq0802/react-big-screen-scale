@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useEffect, useRef } from 'react';
-import { PropsType } from './types.d';
-import './BigScreenScale.less';
+import { BigScreenScaleType } from './types.d';
+// import './BigScreenScale.less';
 
 interface IState {
   originalWidth: string | number;
@@ -15,7 +15,7 @@ interface IState {
  * @param {number} delay
  * @returns {() => void}
  */
-function debounce<T>(fn: T, delay: number = 300): () => void {
+function debounce<T = Function>(fn: T, delay: number = 300): () => void {
   let timer: NodeJS.Timeout;
   return function(...args: any[]): void {
     if (timer) clearTimeout(timer);
@@ -35,7 +35,7 @@ function debounce<T>(fn: T, delay: number = 300): () => void {
  * @param {*} props
  * @return {*}
  */
-const BigScreenScale: FC<Partial<PropsType>> = props => {
+const BigScreenScale: FC<Partial<BigScreenScaleType>> = props => {
   const {
     width = 1920,
     height = 1080,
@@ -121,10 +121,10 @@ const BigScreenScale: FC<Partial<PropsType>> = props => {
 
     const bodyWidth = document.body.clientWidth;
     const bodyHeight = document.body.clientHeight;
-    console.log('setDomScale', scale);
 
     screenWrapper.current!.style.transform = `scale(${scale},${scale})`;
 
+    // 计算外边距
     let mx = Math.max((bodyWidth - domWidth * scale) / 2, 0);
     let my = Math.max((bodyHeight - domHeight * scale) / 2, 0);
 
@@ -146,7 +146,6 @@ const BigScreenScale: FC<Partial<PropsType>> = props => {
     // 计算缩放比例
     const widthScale = bodyWidth / +realWidth;
     const heightScale = bodyHeight / +realHeight;
-    console.log('isfullScreen', isfullScreen);
 
     // 若要铺满全屏，则按照各自比例缩放
     if (isfullScreen) {

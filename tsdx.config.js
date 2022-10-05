@@ -15,7 +15,7 @@ module.exports = {
         ],
         inject: false,
         // extract: !!options.writeMeta,
-        extract: 'react-big-screen-scale.min.css',
+        // extract: 'react-big-screen-scale.min.css',
         // yarn add rollup-plugin-postcss autoprefixer cssnano less --dev
       })
     );

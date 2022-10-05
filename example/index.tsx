@@ -1,13 +1,13 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Test from '../.';
-import '../dist/react-big-screen-scale.min.css';
+import Thing from '../.';
+// import '../dist/react-big-screen-scale.min.css';
 import './index.less';
 
 const App = () => {
   return (
-    <Test isfullScreen>
+    <Thing>
       <div
         style={{
           width: '100%',
@@ -17,7 +17,7 @@ const App = () => {
       >
         测试
       </div>
-    </Test>
+    </Thing>
   );
 };
 
