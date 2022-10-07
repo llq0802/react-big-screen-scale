@@ -25456,7 +25456,9 @@ function _extends() {
         var realWidth = state.current.width || state.current.originalWidth;
         var realHeight = state.current.height || state.current.originalHeight; // 计算缩放比例
         var widthScale = bodyWidth / +realWidth;
-        var heightScale = bodyHeight / +realHeight; // 若要铺满全屏，则按照各自比例缩放
+        var heightScale = bodyHeight / +realHeight;
+        console.log("获取真实视口尺寸", bodyWidth, bodyHeight);
+        console.log("计算缩放比例", widthScale, heightScale); // 若要铺满全屏，则按照各自比例缩放
         if (isfullScreen) screenWrapper.current.style.transform = "scale(" + widthScale + "," + heightScale + ")";
         else {
             // 按照宽高最小比例进行缩放

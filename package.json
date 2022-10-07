@@ -4,7 +4,6 @@
   "license": "MIT",
   "author": "李岚清",
   "module": "dist/react-big-screen-scale.esm.js",
-  "type": "module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [

@@ -1,1 +1,0 @@
-{"mappings":"AAAA;;;;ACAA","sources":["../dist/react-big-screen-scale.min.css","index.less"],"sourcesContent":[".react-big-screen-scale{background-color:#add8e6}","* {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n"],"names":[],"version":3,"file":"index.15c2b7bf.css.map","sourceRoot":"/__parcel_source_root/"}

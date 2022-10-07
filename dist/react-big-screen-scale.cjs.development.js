@@ -144,7 +144,7 @@ var BigScreenScale = function BigScreenScale(props) {
     screenWrapper.current.style.transform = "scale(" + scale + "," + scale + ")"; // 计算外边距
 
     var mx = Math.max((bodyWidth - domWidth * scale) / 2, 0);
-    var my = Math.max((bodyHeight - domHeight * scale) / 2, 0);
+    var my = Math.max((bodyHeight - domHeight * scale) / 2, 0); // 若手动控制外边距
 
     if (typeof autoScale === 'object') {
       !autoScale.x && (mx = 0);

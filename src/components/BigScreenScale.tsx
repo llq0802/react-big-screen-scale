@@ -92,7 +92,6 @@ const BigScreenScale: FC<Partial<BigScreenScaleType>> = props => {
       state.current.width = screenWrapper.current?.clientWidth;
       state.current.height = screenWrapper.current?.clientHeight;
     }
-
     // region 获取画布尺寸
     if (!state.current.originalHeight || !state.current.originalWidth) {
       state.current.originalWidth = window.screen.width;
@@ -115,24 +114,19 @@ const BigScreenScale: FC<Partial<BigScreenScaleType>> = props => {
 
   const setDomScale = (scale: number) => {
     if (!autoScale) return;
-
     const domWidth = screenWrapper.current!.clientWidth;
     const domHeight = screenWrapper.current!.clientHeight;
-
     const bodyWidth = document.body.clientWidth;
     const bodyHeight = document.body.clientHeight;
-
     screenWrapper.current!.style.transform = `scale(${scale},${scale})`;
-
     // 计算外边距
     let mx = Math.max((bodyWidth - domWidth * scale) / 2, 0);
     let my = Math.max((bodyHeight - domHeight * scale) / 2, 0);
-
+    // 若手动控制外边距
     if (typeof autoScale === 'object') {
       !((autoScale as unknown) as { x: boolean; y: boolean }).x && (mx = 0);
       !((autoScale as unknown) as { x: boolean; y: boolean }).y && (my = 0);
     }
-
     screenWrapper.current!.style.margin = `${my}px ${mx}px`;
   };
 
@@ -146,7 +140,6 @@ const BigScreenScale: FC<Partial<BigScreenScaleType>> = props => {
     // 计算缩放比例
     const widthScale = bodyWidth / +realWidth;
     const heightScale = bodyHeight / +realHeight;
-
     // 若要铺满全屏，则按照各自比例缩放
     if (isfullScreen) {
       screenWrapper.current!.style.transform = `scale(${widthScale},${heightScale})`;
