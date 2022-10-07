@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, useEffect, useRef } from 'react';
-import { BigScreenScaleType } from './types.d';
+import { BigScreenScaleType } from './interface';
 // import './BigScreenScale.less';
 
 interface IState {

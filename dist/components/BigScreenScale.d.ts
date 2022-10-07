@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { BigScreenScaleType } from './types.d';
+import { BigScreenScaleType } from './interface';
 /**
  *
  * 缩放组件

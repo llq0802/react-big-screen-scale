@@ -6,10 +6,19 @@
   "module": "dist/react-big-screen-scale.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "keywords": [
+    "react-big-screen-scale",
+    "react-big-screen",
+    "big-screen",
+    "scale",
+    "react",
+    "大屏缩放"
+  ],
   "files": [
     "dist",
-    "src",
-    "LICENSE"
+    "LICENSE",
+    "README.md",
+    "example"
   ],
   "engines": {
     "node": ">=10"

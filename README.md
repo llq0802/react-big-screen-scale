@@ -1,160 +1,106 @@
-# TSDX React User Guide
+<h1 align="center">Welcome to react-big-screen-scale 👋</h1>
+<div align="center"> 
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  <img src="https://img.shields.io/badge/npm-0.12-orange.svg" />
+  <img src="https://img.shields.io/github/issues/crazylxr/3dtagcloudforeact.svg" />
+  <img src="https://img.shields.io/github/forks/crazylxr/3dtagcloudforeact.svg" />
+  <img src="https://img.shields.io/github/stars/crazylxr/3dtagcloudforeact.svg" />
+  <img src="https://img.shields.io/github/license/crazylxr/3dtagcloudforeact.svg" />
+</div>
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+ <!-- ![](https://img.shields.io/github/license/crazylxr/3dtagcloudforeact.svg) -->
 
-> This TSDX setup is meant for developing React component libraries (not apps!) that can be published to NPM. If you’re looking to build a React-based app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
+### 🏠 [主页地址](https://github.com/llq0802/react-big-screen-scale)
 
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
+React Component based on `transform-scale` CSS3 for transportation element.
 
-## Commands
+## 安装
 
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
+```sh
+yarn add react-big-screen-scale
 
-The recommended workflow is to run TSDX in one terminal:
+# or
 
-```bash
-npm start # or yarn start
+npm i react-big-screen-scale
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+## 快速上手
 
-Then run the example inside another:
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import BigScreenScale, { BigScreenScaleType } from 'react-big-screen-scale';
 
-```bash
+const App = () => {
+  return (
+    <BigScreenScale>
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          background: 'red',
+        }}
+      >
+        这是一个demo
+      </div>
+    </BigScreenScale>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+## Props
+
+|      属性      |                                                                            描述                                                                             |                类型                 | 是否必需 | 默认值 |
+| :------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------: | :------: | :----: |
+|     width      |                                                                          大屏宽度                                                                           |               number                |    否    |  1920  |
+|     height     |                                                                          大屏高度                                                                           |               number                |    否    |  1080  |
+|     delay      |                                                                    窗口变化防抖延迟时间                                                                     |               number                |    否    | 400ms  |
+|   autoScale    | 自适应配置，配置为 boolean 类型时，为启动或者关闭自适应，配置为对象时，若 x 为 true，x 轴产生边距，y 为 true 时，y 轴产生边距，启用 fullScreen 时此配置失效 | boolean / { x: boolean; y:boolean } |    否    |  true  |
+|  isfullScreen  |                                是否开启全屏自适应，启用此配置项时会存在拉伸效果，同时 autoScale 失效，非必要情况下不建议开启                                |               boolean               |    否    | false  |
+| containerStyle |                                                          修改根容器样式，如居中展示时侧边背景色，                                                           |            CSSProperties            |    否    |   -    |
+|  wrapperStyle  |                                                                   修改组件自适应区域样式                                                                    |            CSSProperties            |    否    |   -    |
+
+---
+
+> **注意 :** `请将body样式设置 overflow: hidden , 建议设置body宽高与视口宽高一致`
+
+## 参与贡献
+
+```sh
+git clone https://github.com/llq0802/react-big-screen-scale.git
+#or
+git clone git@github.com:llq0802/react-big-screen-scale.git
+
+cd react-big-screen-scale
+yarn
+yarn start
+```
+
+打开一个新的终端
+
+```sh
 cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
+yarn
+yarn start
+访问`http://localhost:1234`
 ```
 
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, we use [Parcel's aliasing](https://parceljs.org/module_resolution.html#aliases).
+## 测试
 
-To do a one-off build, use `npm run build` or `yarn build`.
-
-To run tests, use `npm test` or `yarn test`.
-
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle analysis
-
-Calculates the real cost of your library using [size-limit](https://github.com/ai/size-limit) with `npm run size` and visulize it with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+```sh
+yarn test
 ```
 
-#### React Testing Library
+## 联系我
 
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
+👤 **VX :** **llq958614130** | **E-mail :** **958614130@qq.com**
 
-### Rollup
+## 支持
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+❤️ ❤️ ❤️ 觉得还行的话请不吝啬你的小心心奥 ❤️ ❤️ ❤️
 
-### TypeScript
+---
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
-```
-
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
-
-## Module Formats
-
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Deploying the Example Playground
-
-The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
-
-```bash
-cd example # if not already in the example folder
-npm run build # builds to dist
-netlify deploy # deploy the dist folder
-```
-
-Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
-
-```bash
-netlify init
-# build command: yarn build && cd example && yarn && yarn build
-# directory to deploy: example/dist
-# pick yes for netlify.toml
-```
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
-
-## Usage with Lerna
-
-When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
-
-The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
-
-Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
-
-```diff
-   "alias": {
--    "react": "../node_modules/react",
--    "react-dom": "../node_modules/react-dom"
-+    "react": "../../../node_modules/react",
-+    "react-dom": "../../../node_modules/react-dom"
-   },
-```
-
-An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

@@ -1,13 +1,13 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Thing from '../.';
+import BigScreenScale from '../.';
 // import '../dist/react-big-screen-scale.min.css';
 import './index.less';
 
 const App = () => {
   return (
-    <Thing>
+    <BigScreenScale>
       <div
         style={{
           width: '100%',
@@ -17,7 +17,7 @@ const App = () => {
       >
         测试
       </div>
-    </Thing>
+    </BigScreenScale>
   );
 };
 
